@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
     <link rel="stylesheet" href="assets/css/style.min.css">
+    <script type="text/javascript">
+
+    </script>
 </head>
 
 <body>
@@ -69,6 +72,7 @@
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
         <h3 class="cart-page-title">家居后台管理-添加家居</h3>
+        ${requestScope.mes}
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <form action="manage/furnServlet" method="post">
