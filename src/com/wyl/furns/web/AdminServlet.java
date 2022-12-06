@@ -22,9 +22,9 @@ public class AdminServlet extends HttpServlet {
             if(adminService.login(new Admin(null,username,password)) == null){
                 request.setAttribute("msg","Incorrect username or password");
                 request.setAttribute("username",username);
-                request.getRequestDispatcher("/views/member/manage_login.html").forward(request,response);
+                request.getRequestDispatcher("/views/member/manage_login.jsp").forward(request,response);
             }else{
-                request.getRequestDispatcher("/views/member/manage_menu.html").forward(request,response);
+                request.getRequestDispatcher("/views/member/manage_menu.jsp").forward(request,response);
             }
         }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
