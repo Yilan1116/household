@@ -8,4 +8,6 @@ public interface FurnDAO {
     public List<Furn> queryFurns();
     public int addFurn(Furn frun);
     public int deleteFurnById(int id);
+    public Furn queryFurnById(int id);
+
 }

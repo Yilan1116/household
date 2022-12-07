@@ -28,4 +28,12 @@ public class FurnDAOImpl extends BasicDAO<Furn> implements FurnDAO {
                 "WHERE id =?";
         return update(sql,id);
     }
+
+    @Override
+    public Furn queryFurnById(int id) {
+
+        String sql = "SELECT id, NAME,maker,price,sales,stock,img_path imgPath\n" +
+                "FROM furn WHERE id = ?";
+        return querySingle(sql,Furn.class,id);
+    }
 }

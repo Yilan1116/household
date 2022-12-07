@@ -45,4 +45,12 @@ public class FurnServlet extends BasicServlet {
         furnService.deleteFurnById(id);
         resp.sendRedirect(req.getContextPath()+"/manage/furnServlet?action=list");
     }
+
+
+    protected void showFurn(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = DataUtils.parseInt(req.getParameter("id"),0);
+        Furn furn = furnService.queryFurnById(id);
+        req.setAttribute("furn",furn);
+        req.getRequestDispatcher("/views/manage/furn_update.jsp").forward(req,resp);
+    }
 }

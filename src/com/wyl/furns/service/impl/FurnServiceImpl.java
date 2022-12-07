@@ -25,4 +25,9 @@ public class FurnServiceImpl implements FurnService {
     public int deleteFurnById(int id) {
         return furnDAO.deleteFurnById(id);
     }
+
+    @Override
+    public Furn queryFurnById(int id) {
+        return furnDAO.queryFurnById(id);
+    }
 }
