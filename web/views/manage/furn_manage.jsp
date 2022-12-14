@@ -61,7 +61,7 @@
 
 
                         <div class="header-bottom-set dropdown">
-                            <a href="views/manage/furn_add.jsp">添加家居</a>
+                            <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}">添加家居</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items ="${requestScope.furns}" var="furn">
+                            <c:forEach items ="${requestScope.page.items}" var="furn">
                             <tr>
                                 <td class="product-thumbnail">
                                     <a href="#"><img class="img-responsive ml-3" src="${furn.imgPath}"
@@ -122,11 +122,11 @@
                                         ${furn.sales}
                                 </td>
                                 <td class="product-quantity">
-                                        ${furn.stock}
+                                         ${furn.stock}
                                 </td>
                                 <td class="product-remove">
-                                    <a href="manage/furnServlet?action=showFurn&id=${furn.id}"><i class="icon-pencil"></i></a>
-                                    <a class="deleteCss" href="manage/furnServlet?action=del&id=${furn.id}"><i class="icon-close"></i></a>
+                                    <a href="manage/furnServlet?action=showFurn&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i class="icon-pencil"></i></a>
+                                    <a class="deleteCss" href="manage/furnServlet?action=del&id=${furn.id}&pageNo=${requestScope.page.pageNo}"><i class="icon-close"></i></a>
                                 </td>
                             </tr>
                             </c:forEach>
@@ -136,6 +136,31 @@
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="pro-pagination-style text-center mb-md-30px mb-lm-30px mt-6" data-aos="fade-up">
+            <ul>
+
+
+                <c:if test="${requestScope.page.pageNo >1}">
+                    <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo-1}">上页</a></li>
+                </c:if>
+                <c:set var="begin" value="1"/>
+                <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
+                <c:forEach begin="${begin}" end="${end}" var="i">
+                    <c:if test="${i ==requestScope.page.pageNo }">
+                        <li><a class="active" href="manage/furnServlet?action=page&pageNo=${i}">${i}</a> </li>
+                    </c:if>
+                    <c:if test="${i != requestScope.page.pageNo}">
+                        <li><a href="manage/furnServlet?action=page&pageNo=${i}">${i}</a> </li>
+                    </c:if>
+
+                </c:forEach>
+
+                <c:if test="${requestScope.page.pageNo <requestScope.page.pageTotalCount}">
+                <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo+1}">下页</a></li>
+                </c:if>
+                <li><a href="#">共${requestScope.page.pageTotalCount} 页</a></li>
+            </ul>
         </div>
     </div>
 </div>
@@ -200,7 +225,7 @@
                 <div class="row flex-sm-row-reverse">
                     <div class="col-md-6 text-right">
                         <div class="payment-link">
-                            <img src="#" alt="">
+                           <%-- <img src="#" alt="">--%>
                         </div>
                     </div>
                     <div class="col-md-6 text-left">

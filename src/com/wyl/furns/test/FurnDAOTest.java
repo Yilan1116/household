@@ -24,4 +24,18 @@ public class FurnDAOTest {
         Furn furn = new Furn(null, "台灯", "蚂蚁家居", new BigDecimal(88.88), 666, 7, "asset/images/product-image/14.jpg");
         System.out.println(furnDAO.addFurn(furn));
     }
+
+    @Test
+    public void getTotalRow(){
+        System.out.println(furnDAO.getTotalRow());
+    }
+
+    @Test
+    public void getPageItems(){
+        List<Furn> pageItems = furnDAO.getPageItems(0, 3);
+        for (Furn pageItem : pageItems) {
+            System.out.println(pageItem);
+        }
+    }
+
 }

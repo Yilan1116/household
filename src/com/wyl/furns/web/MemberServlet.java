@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
+
 @WebServlet(name = "MemberServlet")
 public class MemberServlet extends BasicServlet {
 
@@ -30,12 +32,14 @@ public class MemberServlet extends BasicServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(memberService.login(new Member(null,username,password,null)) == null){
+        Member member = memberService.login(new Member(null,username,password,null));
+        if(member  == null){
             request.setAttribute("msg","Incorrect username or password");
             request.setAttribute("username",username);
             request.getRequestDispatcher("/views/member/login.jsp").forward(request,response);
         }else{
-            request.getRequestDispatcher("/views/member/login_ok.html").forward(request,response);
+            request.getSession().setAttribute("member", member);
+            request.getRequestDispatcher("/views/member/login_ok.jsp").forward(request,response);
         }
     }
     protected void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,25 +47,44 @@ public class MemberServlet extends BasicServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
+        String code = request.getParameter("code");
 
-        if(!memberService.ifExistUsername(username)){
+        String token = (String)request.getSession().getAttribute(KAPTCHA_SESSION_KEY);
 
-            Member member = new Member(null, username, password, email);
-            if(memberService.registerMember(member)){
-                request.getRequestDispatcher("/views/member/register_ok.html").forward(request,response);
-            }else{
-                request.getRequestDispatcher("/views/member/register_fail.html").forward(request,response);
+        request.getSession().removeAttribute(KAPTCHA_SESSION_KEY);
+
+        if(token!= null && token.equalsIgnoreCase(code)) {
+
+
+            if (!memberService.ifExistUsername(username)) {
+
+                Member member = new Member(null, username, password, email);
+                if (memberService.registerMember(member)) {
+                    request.getRequestDispatcher("/views/member/register_ok.html").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("/views/member/register_fail.html").forward(request, response);
+                }
+
+            } else {
+
+
+                request.getRequestDispatcher("/views/member/login.jsp").forward(request, response);
+
+
             }
-
-        }else {
-
-
-            request.getRequestDispatcher("/views/member/login.jsp").forward(request,response);
-
-
+        }else{
+            request.setAttribute("msg","验证码不正确");
+            request.setAttribute("active","register");
+            request.getRequestDispatcher("/views/member/login.jsp").forward(request, response);
         }
+
+
 
     }
 
 
+    protected void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath());
+    }
 }

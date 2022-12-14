@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>韩顺平教育-家居网购</title>
+    <base href="<%=request.getContextPath()+"/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
     <link rel="stylesheet" href="assets/css/plugins/plugins.min.css"/>
@@ -26,6 +29,19 @@
                     </div>
                 </div>
                 <!-- Header Logo End -->
+                <div class="col align-self-center">
+                    <div class="header-actions">
+                        <div class="header-bottom-set dropdown">
+                            <a>欢迎: ${sessionScope.member.username}</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="#">订单管理</a>
+                        </div>
+                        <div class="header-bottom-set dropdown">
+                            <a href="memberServlet?action=logout">安全退出</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -56,7 +72,8 @@
             <div class="col-lg-7 col-md-12 ml-auto mr-auto">
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
-                        <a class="active"  href="index.html">
+
+                        <a class="active"  href="index.jsp">
                             <h4>登录成功, 返回首页</h4>
                         </a>
                     </div>
