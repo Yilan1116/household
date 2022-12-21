@@ -23,7 +23,7 @@ public abstract class BasicServlet extends HttpServlet {
             //末班模式加发射加动态机制,简化if-else
             declaredMethod.invoke(this,req,resp);
         } catch (Exception e) {
-            e.printStackTrace();
+           throw new RuntimeException(e);
 
         }
     }

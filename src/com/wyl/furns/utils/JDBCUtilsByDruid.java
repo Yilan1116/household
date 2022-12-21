@@ -18,6 +18,7 @@ import java.util.Properties;
 public class JDBCUtilsByDruid {
 
     private static DataSource ds;
+    private static ThreadLocal<Connection> threadLocalconn = new ThreadLocal<>();
 
     //在静态代码块完成 ds初始化
     static {
@@ -33,12 +34,68 @@ public class JDBCUtilsByDruid {
     }
 
     //编写getConnection方法
-    public static Connection getConnection() throws SQLException {
+    /*public static Connection getConnection() throws SQLException {
         return ds.getConnection();
+    }*/
+
+    public static Connection getConnection()  {
+
+        Connection connection = threadLocalconn.get();
+        if(connection==null){
+            try {
+                connection = ds.getConnection();
+                connection.setAutoCommit(false);
+
+            }catch (SQLException throwables){
+                throwables.printStackTrace();
+                }
+            threadLocalconn.set(connection);
+
+
+        }
+        return connection;
     }
 
-    //关闭连接, 老师再次强调： 在数据库连接池技术中，close 不是真的断掉连接
-    //而是把使用的Connection对象放回连接池
+
+
+    public static void commit() {
+        Connection connection = threadLocalconn.get();
+        if(connection != null){
+            try {
+                connection.commit();
+            }catch (SQLException throwables){
+                throwables.printStackTrace();
+            }finally{
+                try{
+                    connection.close();
+                }catch(SQLException throwables){
+                    throwables.printStackTrace();
+                }
+            }
+
+        }
+        threadLocalconn.remove();
+    }
+
+    public static void rollback(){
+        Connection connection = threadLocalconn.get();
+        if(connection != null){
+            try {
+                connection.rollback();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        threadLocalconn.remove();
+    }
+
+
     public static void close(ResultSet resultSet, Statement statement, Connection connection) {
 
         try {

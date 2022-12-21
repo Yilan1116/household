@@ -17,9 +17,17 @@
     <script type="text/javascript" src="script/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
         // 页面加载完成之后
-        $(function () {
+
+
+            $(function () {
+
+
 
             $(function(){
+
+                $("#username").blur(function () {
+                    alert("hello");
+                })
                 if("${requestScope.active}" == "register"){
                     $("#register_tab")[0].click();
                 }

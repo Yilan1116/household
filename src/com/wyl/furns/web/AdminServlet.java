@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "AdminServlet")
-public class AdminServlet extends HttpServlet {
+public class AdminServlet extends BasicServlet {
     private AdminService adminService = new AdminServiceImpl();
 
-        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             if(adminService.login(new Admin(null,username,password)) == null){
                 request.setAttribute("msg","Incorrect username or password");
                 request.setAttribute("username",username);
-                request.getRequestDispatcher("/views/member/manage_login.jsp").forward(request,response);
+                request.getRequestDispatcher("/views/manage/manage_login.jsp").forward(request,response);
             }else{
-                request.getRequestDispatcher("/views/member/manage_menu.jsp").forward(request,response);
+                request.getRequestDispatcher("/views/manage/manage_menu.jsp").forward(request,response);
             }
         }
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
