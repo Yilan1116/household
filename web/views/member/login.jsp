@@ -7,7 +7,7 @@
 
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>韩顺平教育-家居网购</title>
+    <title>Home Shopping</title>
     <!--写base标签，永远固定相对路径跳转的结果-->
     <base href="<%=request.getContextPath()+"/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -51,7 +51,7 @@
                 //3 使用test方法验证
                 if (!usernamePatt.test(usernameVal)) {
                     //4 提示用户结果
-                    $("span.errorMsg").text("用户名格式不正确");
+                    $("span.errorMsg").text("Incorrect username format");
                     return false;
                 }
 
@@ -63,7 +63,7 @@
                 //3 使用test方法验证
                 if (!passwordPatt.test(passwordVal)) {
                     //4 提示用户结果
-                    $("span.errorMsg").text("密码格式不正确");
+                    $("span.errorMsg").text("Incorrect password format");
                     return false;
                 }
 
@@ -72,7 +72,7 @@
                 var repwdVal = $("#repwd").val();
                 //2 和密码相比较
                 if (repwdVal != passwordVal) {
-                    $("span.errorMsg").text("两次输入密码不一致");
+                    $("span.errorMsg").text("Inconsistent password");
                     return false;
                 }
 
@@ -84,19 +84,19 @@
                 //3 使用test方法验证是否合法
                 if (!emailPatt.test(emailVal)) {
                     //4 提示用户
-                    $("span.errorMsg").text("邮箱格式不正确");
+                    $("span.errorMsg").text("Incorrect email");
                     return false;
                 }
 
                 var codeText = $("#code").val();
                 codeText = $.trim(codeText);
                 if(codeText = null || codeText == ""){
-                    $("span.errorMsg").text("验证码不能为空");
+                    $("span.errorMsg").text("The code cannot be empty");
                     return false;
                 }
 
-                // 给出注册信息通过
-                $("span.errorMsg").text("注册信息通过");
+                // 给出注册Info通过
+                $("span.errorMsg").text("Registration successfully");
                 return true; //暂时不提交.
             });
         });
@@ -149,10 +149,10 @@
                 <div class="login-register-wrapper">
                     <div class="login-register-tab-list nav">
                         <a class="active" data-bs-toggle="tab" href="#lg1">
-                            <h4>会员登录</h4>
+                            <h4>Log in</h4>
                         </a>
                         <a data-bs-toggle="tab" href="#lg2">
-                            <h4>会员注册</h4>
+                            <h4>Register</h4>
                         </a>
                     </div>
                     <div class="tab-content">
@@ -189,13 +189,13 @@
 
                                         <input type="hidden" name = "action" value="register">
                                         <input type="text" id="username" name="username" placeholder="Username"/>
-                                        <input type="password" id="password" name="password" placeholder="输入密码"/>
-                                        <input type="password" id="repwd" name="user-password" placeholder="确认密码"/>
-                                        <input name="email" id="email" placeholder="电子邮件" type="email"/>
+                                        <input type="password" id="password" name="password" placeholder="password"/>
+                                        <input type="password" id="repwd" name="user-password" placeholder="confirm password"/>
+                                        <input name="email" id="email" placeholder="email" type="email"/>
                                         <input type="text" id="code" name="code" style="width: 50%"
                                                placeholder="验证码"/>　　<img id="codeImg" alt="" src="kaptchaServlet">
                                         <div class="button-box">
-                                            <button type="submit" id="sub-btn"><span>会员注册</span></button>
+                                            <button type="submit" id="sub-btn"><span>Register</span></button>
                                         </div>
                                     </form>
                                 </div>
@@ -221,15 +221,15 @@
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up"
                          data-aos-delay="400">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">信息</h4>
+                            <h4 class="footer-herading">Info</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
-                                        <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
-                                        <li class="li"><a class="single-link" href="#">条款和条件</a></li>
-                                        <li class="li"><a class="single-link" href="#">制造</a></li>
+                                        <li class="li"><a class="single-link" href="about.html">About</a></li>
+                                        <li class="li"><a class="single-link" href="#">Information</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy</a></li>
+                                        <li class="li"><a class="single-link" href="#">Terms</a></li>
+                                        <li class="li"><a class="single-link" href="#">Manufacture</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -239,16 +239,16 @@
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-2 col-sm-6 mb-lm-30px" data-aos="fade-up" data-aos-delay="600">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">我的账号</h4>
+                            <h4 class="footer-herading">My account</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
+                                        <li class="li"><a class="single-link" href="my-account.html">My account</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.jsp">登录</a></li>
-                                        <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
+                                        <li class="li"><a class="single-link" href="cart.html">Cart</a></li>
+                                        <li class="li"><a class="single-link" href="login.jsp">Log in</a></li>
+                                        <li class="li"><a class="single-link" href="wishlist.html">Wishlist</a></li>
+                                        <li class="li"><a class="single-link" href="checkout.html">Checkout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -272,7 +272,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-left">
-                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育~</p>
+                        <p class="copy-text"> ~</p>
                     </div>
                 </div>
             </div>

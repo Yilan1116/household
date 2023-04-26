@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>韩顺平教育-家居网购</title>
+    <title>Home Shopping</title>
     <base href="<%=request.getContextPath()+"/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <link rel="stylesheet" href="assets/css/vendor/vendor.min.css"/>
@@ -32,13 +32,13 @@
                 <div class="col align-self-center">
                     <div class="header-actions">
                         <div class="header-bottom-set dropdown">
-                            <a>欢迎: ${sessionScope.member.username}</a>
+                            <a>Welcome: ${sessionScope.member.username}</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="#">订单管理</a>
+                            <a href="#">Order management</a>
                         </div>
                         <div class="header-bottom-set dropdown">
-                            <a href="memberServlet?action=logout">安全退出</a>
+                            <a href="memberServlet?action=logout">Log out</a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                     <div class="login-register-tab-list nav">
 
                         <a class="active"  href="index.jsp">
-                            <h4>登录成功, 返回首页</h4>
+                            <h4>Login success, click back to home page</h4>
                         </a>
                     </div>
                 </div>
@@ -96,15 +96,15 @@
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up"
                          data-aos-delay="400">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">信息</h4>
+                            <h4 class="footer-herading">Info</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
-                                        <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
-                                        <li class="li"><a class="single-link" href="#">条款和条件</a></li>
-                                        <li class="li"><a class="single-link" href="#">制造</a></li>
+                                        <li class="li"><a class="single-link" href="about.html">About</a></li>
+                                        <li class="li"><a class="single-link" href="#">Information</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy</a></li>
+                                        <li class="li"><a class="single-link" href="#">Terms</a></li>
+                                        <li class="li"><a class="single-link" href="#">Manufacture</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -114,16 +114,16 @@
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-2 col-sm-6 mb-lm-30px" data-aos="fade-up" data-aos-delay="600">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">我的账号</h4>
+                            <h4 class="footer-herading">My account</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
+                                        <li class="li"><a class="single-link" href="my-account.html">My account</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.jsp">登录</a></li>
-                                        <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
+                                        <li class="li"><a class="single-link" href="cart.html">Cart</a></li>
+                                        <li class="li"><a class="single-link" href="login.jsp">Log in</a></li>
+                                        <li class="li"><a class="single-link" href="wishlist.html">Wishlist</a></li>
+                                        <li class="li"><a class="single-link" href="checkout.html">Checkout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -147,7 +147,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-left">
-                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育~</p>
+                        <p class="copy-text"> ~</p>
                     </div>
                 </div>
             </div>

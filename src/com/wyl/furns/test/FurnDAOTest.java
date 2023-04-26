@@ -21,7 +21,7 @@ public class FurnDAOTest {
     }
     @Test
     public void add(){
-        Furn furn = new Furn(null, "台灯", "蚂蚁家居", new BigDecimal(88.88), 666, 7, "asset/images/product-image/14.jpg");
+        Furn furn = new Furn(null, "台灯", "蚂蚁", new BigDecimal(88.88), 666, 7, "asset/images/product-image/14.jpg");
         System.out.println(furnDAO.addFurn(furn));
     }
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>韩顺平教育-家居网购</title>
+    <title>Home Shopping</title>
     <!-- 移动端适配 -->
     <base href="<%=request.getContextPath()+"/"%>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -18,7 +18,7 @@
             $("a.deleteCss").click(function(){
                 var furnName = $(this).parent().parent("td:eq(1)").text();
 
-                return confirm("确定删除吗?");
+                return confirm("Are you sure to delete it?");
             })
 
         })
@@ -56,12 +56,12 @@
                         </div>
                         <!-- Single Wedge Start -->
                         <div class="header-bottom-set dropdown">
-                            <a href="#">后台管理</a>
+                            <a href="#">Background management</a>
                         </div>
 
 
                         <div class="header-bottom-set dropdown">
-                            <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}">添加家居</a>
+                            <a href="views/manage/furn_add.jsp?pageNo=${requestScope.page.pageNo}">Add</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 <!-- Cart Area Start -->
 <div class="cart-main-area pt-100px pb-100px">
     <div class="container">
-        <h3 class="cart-page-title">家居后台管理</h3>
+        <h3 class="cart-page-title">Background management</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <form action="#">
@@ -99,13 +99,13 @@
                         <table>
                             <thead>
                             <tr>
-                                <th>图片</th>
-                                <th>家居名</th>
-                                <th>商家</th>
-                                <th>价格</th>
-                                <th>销量</th>
-                                <th>库存</th>
-                                <th>操作</th>
+                                <th>Picture</th>
+                                <th>Name</th>
+                                <th>Merchant</th>
+                                <th>Merchant</th>
+                                <th>Sales</th>
+                                <th>Inventory</th>
+                                <th>Management</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -142,7 +142,7 @@
 
 
                 <c:if test="${requestScope.page.pageNo >1}">
-                    <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo-1}">上页</a></li>
+                    <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo-1}">Previous</a></li>
                 </c:if>
                 <c:set var="begin" value="1"/>
                 <c:set var="end" value="${requestScope.page.pageTotalCount}"/>
@@ -157,7 +157,7 @@
                 </c:forEach>
 
                 <c:if test="${requestScope.page.pageNo <requestScope.page.pageTotalCount}">
-                <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo+1}">下页</a></li>
+                <li><a href="manage/furnServlet?action=page&pageNo=${requestScope.page.pageNo+1}">Next</a></li>
                 </c:if>
                 <li><a href="#">共${requestScope.page.pageTotalCount} 页</a></li>
             </ul>
@@ -178,15 +178,15 @@
                     <div class="col-md-6 col-sm-6 col-lg-3 mb-md-30px mb-lm-30px" data-aos="fade-up"
                          data-aos-delay="400">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">信息</h4>
+                            <h4 class="footer-herading">Info</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="about.html">关于我们</a></li>
-                                        <li class="li"><a class="single-link" href="#">交货信息</a></li>
-                                        <li class="li"><a class="single-link" href="privacy-policy.html">隐私与政策</a></li>
-                                        <li class="li"><a class="single-link" href="#">条款和条件</a></li>
-                                        <li class="li"><a class="single-link" href="#">制造</a></li>
+                                        <li class="li"><a class="single-link" href="about.html">About</a></li>
+                                        <li class="li"><a class="single-link" href="#">Information</a></li>
+                                        <li class="li"><a class="single-link" href="privacy-policy.html">Privacy</a></li>
+                                        <li class="li"><a class="single-link" href="#">Terms</a></li>
+                                        <li class="li"><a class="single-link" href="#">Manufacture</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -196,16 +196,16 @@
                     <!-- Start single blog -->
                     <div class="col-md-6 col-lg-2 col-sm-6 mb-lm-30px" data-aos="fade-up" data-aos-delay="600">
                         <div class="single-wedge">
-                            <h4 class="footer-herading">我的账号</h4>
+                            <h4 class="footer-herading">My account</h4>
                             <div class="footer-links">
                                 <div class="footer-row">
                                     <ul class="align-items-center">
-                                        <li class="li"><a class="single-link" href="my-account.html">我的账号</a>
+                                        <li class="li"><a class="single-link" href="my-account.html">My account</a>
                                         </li>
-                                        <li class="li"><a class="single-link" href="cart.html">我的购物车</a></li>
-                                        <li class="li"><a class="single-link" href="login.html">登录</a></li>
-                                        <li class="li"><a class="single-link" href="wishlist.html">感兴趣的</a></li>
-                                        <li class="li"><a class="single-link" href="checkout.html">结账</a></li>
+                                        <li class="li"><a class="single-link" href="cart.html">Cart</a></li>
+                                        <li class="li"><a class="single-link" href="login.html">Log in</a></li>
+                                        <li class="li"><a class="single-link" href="wishlist.html">Wishlist</a></li>
+                                        <li class="li"><a class="single-link" href="checkout.html">Checkout</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-left">
-                        <p class="copy-text">Copyright &copy; 2021 韩顺平教育~</p>
+                        <p class="copy-text"> ~</p>
                     </div>
                 </div>
             </div>
