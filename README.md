@@ -16,7 +16,7 @@ This project is a furniture e-commerce website that showcases and sells various 
 · Support user checkout and provide the function of order number
 
 ## Technology Stack
-· Backend Development: Java, Spring MVC
+· Backend Development: Java
 
 · Frontend Development: HTML, CSS, JavaScript
 
